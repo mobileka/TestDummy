@@ -19,7 +19,7 @@ class Factory
      *
      * @var array
      */
-    private static $factories;
+    protected static $factories;
 
     /**
      * The persistable instance.
@@ -123,7 +123,7 @@ class Factory
      * @param  string $factoriesPath
      * @return void
      */
-    private function loadFactories($factoriesPath)
+    protected function loadFactories($factoriesPath)
     {
         $factoriesPath = $factoriesPath ?: static::$factoriesPath;
 
@@ -138,7 +138,7 @@ class Factory
      * @param  IsPersistable $provider
      * @return void
      */
-    private function setDatabaseProvider($provider)
+    protected function setDatabaseProvider($provider)
     {
         if ( ! static::$databaseProvider) {
             static::$databaseProvider = $provider ?: new EloquentModel;
